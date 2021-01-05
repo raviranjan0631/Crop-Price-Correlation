@@ -25,11 +25,20 @@ def move_file(name):
 def download_all_state(values, states, commodity_value, driver,start_date = '', end_date = ''):
     
     for val, st in zip(values, states):
-
-        get_data_from_date_range(commodity_value, val, start_date, end_date, driver)
-        name = st + '.xls'
-        time.sleep(15)
-        rename_download(name)
-        move_file(name)
-        print(st, ' has downloaded successfully')
+        try:
+            get_data_from_date_range(commodity_value, val, start_date, end_date, driver)
+            name = st + '.xls'
+            time.sleep(60)
+            rename_download(name)
+            move_file(name)
+            time.sleep(10)
+            print(st, ' has downloaded successfully')
+        except:
+            print(st, ' is taking a lot of time extending the download time by 5 minutes')
+            time.sleep(300)
+            rename_download(name)
+            move_file(name)
+            time.sleep(10)
+            print(st, ' has downloaded successfully')
+            continue
         
