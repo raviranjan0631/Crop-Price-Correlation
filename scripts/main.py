@@ -16,6 +16,6 @@ driver = webdriver.Chrome(chrome_options=chrome_options, executable_path = drive
 print('download path added successfully')
 state = pd.read_csv('./data/state.csv')
 
-download_all_state(state['value'].values, state['state'].values, 23, driver,start_date = '', end_date = '')
+download_all_state(state['value'].values, state['state'].values, 78, driver,start_date = '', end_date = '')
 
 driver.close()
