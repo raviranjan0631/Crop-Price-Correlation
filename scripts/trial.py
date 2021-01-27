@@ -3,7 +3,7 @@ import time
 from bs4 import BeautifulSoup
 import pandas as pd
 from selenium.webdriver.support.ui import Select
-from get_commodity_data import download_all_state
+from get_commodity_data import download_all_state, get_data_from_date_range
 import os
 print(os.path.abspath('./')) 
 driver_path = './dependency/chromedriver.exe'
@@ -16,6 +16,6 @@ driver = webdriver.Chrome(chrome_options=chrome_options, executable_path = drive
 print('download path added successfully')
 state = pd.read_csv('./data/state.csv')
 
-download_all_state(state['value'].values, state['state'].values, 23, driver,start_date = '', end_date = '')
+get_data_from_date_range(23, 'UP', '', 'Uttar+Pradesh', '27-Jan-2017', '27-Jan-2018', driver)
 
 driver.close()
