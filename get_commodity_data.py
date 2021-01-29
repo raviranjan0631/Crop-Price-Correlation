@@ -56,4 +56,4 @@ def download_all_state(values, states, commodity_value, driver,start_date = '', 
             print('state has not downloaded')
             continue
         break
-        
+        Generalised for complete year
