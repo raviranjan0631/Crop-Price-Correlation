@@ -10,7 +10,6 @@ url = 'https://agmarknet.gov.in/'
 driver = webdriver.Chrome(executable_path = driver_path)
 driver.get(url)
 
-# select_commodity = Select(driver.find_element_by_xpath('//*[@id="ddlCommodity"]'))
 
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 select_commodity = soup.find_all('select', {'id':'ddlCommodity'})[0]
